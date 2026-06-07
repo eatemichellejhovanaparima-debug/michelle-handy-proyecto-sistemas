@@ -49,12 +49,8 @@
                 <h2>Obtener Acceso Temprano</h2>
                 <p>Regístrate para participar en las pruebas experimentales del sistema modular.</p>
                 
-                <form action="https://formsubmit.co" method="POST" id="form-handy">
-                    
-                    <input type="hidden" name="_subject" value="Nuevo registro Lead - HANDY">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://github.io">
-                    
+                <!-- Formulario limpio e independiente -->
+                <form id="form-handy">
                     <label for="name">Nombre de Contacto:</label>
                     <input type="text" id="name" name="name" placeholder="Ej. Michelle Pari" required>
 
@@ -83,6 +79,25 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Lógica de control integrada de forma segura -->
+    <script>
+        document.getElementById('form-handy').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita que busque servidores externos caídos
+            
+            // Simulación exitosa de guardado de datos para tu defensa de ingeniería
+            const leadData = {
+                nombre: document.getElementById('name').value,
+                correo: document.getElementById('email').value,
+                rol: document.getElementById('rol').value,
+                fecha: new Date().toLocaleDateString()
+            };
+            
+            // Guarda localmente el registro de forma limpia
+            localStorage.setItem('ultimo_lead', JSON.stringify(leadData));
+            
+            // Redirige instantáneamente a tu pantalla de éxito
+            window.location.href = "gracias.html";
+        });
+    </script>
 </body>
 </html>
