@@ -28,7 +28,6 @@
 
     <div class="container">
         <main class="main-grid">
-            
             <section class="features">
                 <h2>Componentes de la Plataforma Inteligente</h2>
                 <div class="card">
@@ -116,7 +115,7 @@
                         </tr>
                     </thead>
                     <tbody id="table-body">
-                        <!-- Inyección de datos -->
+                        <!-- Inyección automática -->
                     </tbody>
                 </table>
             </div>
@@ -126,29 +125,32 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 Proyecto HANDY - Ingeniería de Sistemas. El Alto, Bolivia.</p>
-            <p>Construido con HTML5, CSS3 y JavaScript Adaptativo bajo la metodología ágil SCRUM.</p>
         </div>
     </footer>
 
     <script>
-        // --- SISTEMA CRUD SEGURO ---
-        const defaultData = [
+        // Memoria protegida contra bloqueos de seguridad del navegador
+        let handy_db_memory = [
             { id: "1", es: "Hola", en: "Hello", gesture: "Mano extendida en la sien." },
             { id: "2", es: "Gracias", en: "Thank you", gesture: "Mano de los labios hacia adelante." }
         ];
 
-        if (!localStorage.getItem('handy_db')) {
-            localStorage.setItem('handy_db', JSON.stringify(defaultData));
+        // Intentar recuperar datos viejos de forma segura
+        try {
+            const saved = localStorage.getItem('handy_backup_key');
+            if (saved) {
+                handy_db_memory = JSON.parse(saved);
+            }
+        } catch(e) {
+            console.log("Memoria local deshabilitada, usando almacenamiento virtual.");
         }
 
         const tbody = document.getElementById('table-body');
         const form = document.getElementById('crud-form');
 
         function renderTable() {
-            const data = JSON.parse(localStorage.getItem('handy_db')) || [];
             tbody.innerHTML = '';
-            
-            data.forEach(item => {
+            handy_db_memory.forEach(item => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
                     <td style="font-weight: bold;">${item.es}</td>
@@ -169,29 +171,31 @@
             const es = document.getElementById('word-es').value.trim();
             const en = document.getElementById('word-en').value.trim();
             const gesture = document.getElementById('word-gesture').value.trim();
-            
-            let data = JSON.parse(localStorage.getItem('handy_db')) || [];
 
             if (id) {
-                data = data.map(item => item.id === id ? { id, es, en, gesture } : item);
+                handy_db_memory = handy_db_memory.map(item => item.id === id ? { id, es, en, gesture } : item);
             } else {
-                data.push({ id: Date.now().toString(), es, en, gesture });
+                handy_db_memory.push({ id: Date.now().toString(), es, en, gesture });
             }
 
-            localStorage.setItem('handy_db', JSON.stringify(data));
+            try {
+                localStorage.setItem('handy_backup_key', JSON.stringify(handy_db_memory));
+            } catch(err) {}
+
             resetCrudForm();
             renderTable();
         }
 
         function editWord(id) {
-            const data = JSON.parse(localStorage.getItem('handy_db')) || [];
-            const item = data.find(i => i.id === id);
+            const item = handy_db_memory.find(i => i.id === id);
             if (item) {
                 document.getElementById('word-id').value = item.id;
                 document.getElementById('word-es').value = item.es;
                 document.getElementById('word-en').value = item.en;
                 document.getElementById('word-gesture').value = item.gesture;
-        // Función para cambiar el formulario al modo "Editar"
+
+
+                    // Función para cambiar el formulario al modo "Editar"
         document.getElementById('crud-title').innerText = "Editar Palabra";
         document.getElementById('btn-cancel').style.display = "block";
     }
@@ -200,9 +204,10 @@
 // Función para Eliminar una palabra del CRUD (DELETE)
 function deleteWord(id) {
     if (confirm('¿Eliminar esta palabra?')) {
-        let data = JSON.parse(localStorage.getItem('handy_db')) || [];
-        data = data.filter(i => i.id !== id);
-        localStorage.setItem('handy_db', JSON.stringify(data));
+        handy_db_memory = handy_db_memory.filter(i => i.id !== id);
+        try {
+            localStorage.setItem('handy_backup_key', JSON.stringify(handy_db_memory));
+        } catch(err) {}
         renderTable();
         resetCrudForm();
     }
@@ -216,5 +221,5 @@ function resetCrudForm() {
     document.getElementById('btn-cancel').style.display = "none";
 }
 
-// Ejecutar la lectura de la tabla en cuanto cargue la página
-document.addEventListener('DOMContentLoaded', renderTable);
+// Cargar la tabla inmediatamente al abrir la página
+renderTable();
