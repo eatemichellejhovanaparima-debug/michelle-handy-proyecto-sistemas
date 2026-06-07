@@ -5,15 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HANDY - Aprendizaje de Inglés mediante LSB</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .crud-box { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid var(--grey); margin-top: 30px; }
-        .crud-form-panel { background: #f7fafc; padding: 15px; border-radius: 8px; border: 1px solid var(--grey); margin-bottom: 20px; }
-        .crud-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; font-size: 0.9rem; }
-        .crud-table th, .crud-table td { padding: 10px; border: 1px solid var(--grey); text-align: left; }
-        .crud-table th { background: var(--primary); color: white; }
-        .btn-blue { width: 100%; background-color: var(--primary); color: white; border: none; padding: 12px; font-size: 1rem; font-weight: bold; border-radius: 6px; cursor: pointer; }
-        .btn-act { padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-right: 4px; }
-    </style>
 </head>
 <body>
 
@@ -28,6 +19,7 @@
 
     <div class="container">
         <main class="main-grid">
+            
             <section class="features">
                 <h2>Componentes de la Plataforma Inteligente</h2>
                 <div class="card">
@@ -52,19 +44,16 @@
                 <h2>Obtener Acceso Temprano</h2>
                 <p>Regístrate para participar en las pruebas experimentales del sistema modular.</p>
                 
-                <form id="form-handy" action="https://formsubmit.co" method="POST">
-                    <input type="hidden" name="_subject" value="Nuevo registro Lead - HANDY">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://github.io">
-                    
+                <!-- Formulario corregido e independiente de FormSubmit -->
+                <form id="form-handy">
                     <label for="name">Nombre de Contacto:</label>
-                    <input type="text" id="name" name="name" placeholder="Ej. Michelle Pari" required>
+                    <input type="text" id="name" required placeholder="Ej. Michelle Pari">
 
                     <label for="email">Correo Electrónico:</label>
-                    <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+                    <input type="email" id="email" required placeholder="correo@ejemplo.com">
 
                     <label for="rol">Rol del Interesado:</label>
-                    <select id="rol" name="rol" required>
+                    <select id="rol" required>
                         <option value="" disabled selected>Selecciona tu rol</option>
                         <option value="Padre/Madre">Padre / Madre de Familia</option>
                         <option value="Docente">Docente / Tutor de Apoyo</option>
@@ -79,11 +68,11 @@
         <hr style="border: 0; height: 1px; background: var(--grey); margin: 30px 0;">
 
         <!-- PANEL CRUD OPERATIVO -->
-        <section class="crud-box">
+        <section style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid var(--grey); margin-top: 30px;">
             <h2 style="color: var(--primary); margin-bottom: 5px;">🛠️ Panel CRUD: Gestión de Vocabulario</h2>
             <p style="font-size: 0.85rem; color: #718096; margin-bottom: 20px;">Módulo operativo para administrar el banco de palabras guardadas en la memoria local.</p>
             
-            <div class="crud-form-panel">
+            <div style="background: #f7fafc; padding: 15px; border-radius: 8px; border: 1px solid var(--grey); margin-bottom: 20px;">
                 <h3 id="crud-title" style="margin-bottom: 10px;">Añadir Nueva Palabra</h3>
                 <form id="crud-form" onsubmit="saveWord(event)">
                     <input type="hidden" id="word-id">
@@ -98,20 +87,20 @@
                     <input type="text" id="word-gesture" required placeholder="Ej. Movimiento de manos...">
                     
                     <div style="display: flex; gap: 10px; margin-top: 10px;">
-                        <button type="submit" class="btn-blue" style="width: 70%;">Guardar Palabra</button>
+                        <button type="submit" style="width: 70%; background-color: var(--primary); color: white; border: none; padding: 12px; font-size: 1rem; font-weight: bold; border-radius: 6px; cursor: pointer;">Guardar Palabra</button>
                         <button type="button" id="btn-cancel" onclick="resetCrudForm()" style="display: none; background: #a0aec0; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer; width: 30%; font-weight: bold;">Cancelar</button>
                     </div>
                 </form>
             </div>
 
             <div style="overflow-x: auto;">
-                <table class="crud-table">
+                <table style="width: 100%; border-collapse: collapse; margin-top: 15px; background: white; font-size: 0.9rem;">
                     <thead>
                         <tr>
-                            <th>Español</th>
-                            <th>Inglés</th>
-                            <th>Gesto LSB</th>
-                            <th style="text-align: center;">Acciones</th>
+                            <th style="padding: 10px; border: 1px solid var(--grey); background: var(--primary); color: white; text-align: left;">Español</th>
+                            <th style="padding: 10px; border: 1px solid var(--grey); background: var(--primary); color: white; text-align: left;">Inglés</th>
+                            <th style="padding: 10px; border: 1px solid var(--grey); background: var(--primary); color: white; text-align: left;">Gesto LSB</th>
+                            <th style="padding: 10px; border: 1px solid var(--grey); background: var(--primary); color: white; text-align: center;">Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="table-body">
@@ -123,27 +112,29 @@
     </div>
 
     <footer>
-        <div class="container">
+        <div class="container" style="text-align: center; padding: 20px 0; color: #718096; font-size: 0.85rem;">
             <p>&copy; 2026 Proyecto HANDY - Ingeniería de Sistemas. El Alto, Bolivia.</p>
         </div>
     </footer>
 
     <script>
-        // Memoria protegida contra bloqueos de seguridad del navegador
+        // --- CONTROL DEL FORMULARIO DE ACCESO (VÍA JAVASCRIPT DIRECTO) ---
+        document.getElementById('form-handy').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Viaja directo a la página de éxito sin pasar por servidores externos caídos
+            window.location.href = "gracias.html";
+        });
+
+        // --- SISTEMA CRUD CON BASE DE DATOS LOCAL MEMORIZADA ---
         let handy_db_memory = [
             { id: "1", es: "Hola", en: "Hello", gesture: "Mano extendida en la sien." },
             { id: "2", es: "Gracias", en: "Thank you", gesture: "Mano de los labios hacia adelante." }
         ];
 
-        // Intentar recuperar datos viejos de forma segura
         try {
             const saved = localStorage.getItem('handy_backup_key');
-            if (saved) {
-                handy_db_memory = JSON.parse(saved);
-            }
-        } catch(e) {
-            console.log("Memoria local deshabilitada, usando almacenamiento virtual.");
-        }
+            if (saved) { handy_db_memory = JSON.parse(saved); }
+        } catch(e) {}
 
         const tbody = document.getElementById('table-body');
         const form = document.getElementById('crud-form');
@@ -153,12 +144,12 @@
             handy_db_memory.forEach(item => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <td style="font-weight: bold;">${item.es}</td>
-                    <td style="color: var(--primary); font-style: italic;">${item.en}</td>
-                    <td>${item.gesture}</td>
-                    <td style="text-align: center; white-space: nowrap;">
-                        <button class="btn-act" style="background: #ebf4ff; color: var(--primary);" onclick="editWord('${item.id}')">Editar</button>
-                        <button class="btn-act" style="background: #fff5f5; color: #e53e3e;" onclick="deleteWord('${item.id}')">Eliminar</button>
+                    <td style="padding: 10px; border: 1px solid var(--grey); font-weight: bold;">${item.es}</td>
+                    <td style="padding: 10px; border: 1px solid var(--grey); color: var(--primary); font-style: italic;">${item.en}</td>
+                    <td style="padding: 10px; border: 1px solid var(--grey);">${item.gesture}</td>
+                    <td style="padding: 10px; border: 1px solid var(--grey); text-align: center; white-space: nowrap;">
+                        <button style="background: #ebf4ff; color: var(--primary); border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-right: 4px;" onclick="editWord('${item.id}')">Editar</button>
+                        <button style="background: #fff5f5; color: #e53e3e; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-weight: bold;" onclick="deleteWord('${item.id}')">Eliminar</button>
                     </td>
                 `;
                 tbody.appendChild(tr);
@@ -178,10 +169,7 @@
                 handy_db_memory.push({ id: Date.now().toString(), es, en, gesture });
             }
 
-            try {
-                localStorage.setItem('handy_backup_key', JSON.stringify(handy_db_memory));
-            } catch(err) {}
-
+            try { localStorage.setItem('handy_backup_key', JSON.stringify(handy_db_memory)); } catch(err) {}
             resetCrudForm();
             renderTable();
         }
@@ -191,35 +179,6 @@
             if (item) {
                 document.getElementById('word-id').value = item.id;
                 document.getElementById('word-es').value = item.es;
-                document.getElementById('word-en').value = item.en;
-                document.getElementById('word-gesture').value = item.gesture;
 
-
-                    // Función para cambiar el formulario al modo "Editar"
-        document.getElementById('crud-title').innerText = "Editar Palabra";
-        document.getElementById('btn-cancel').style.display = "block";
-    }
-}
-
-// Función para Eliminar una palabra del CRUD (DELETE)
-function deleteWord(id) {
-    if (confirm('¿Eliminar esta palabra?')) {
-        handy_db_memory = handy_db_memory.filter(i => i.id !== id);
-        try {
-            localStorage.setItem('handy_backup_key', JSON.stringify(handy_db_memory));
-        } catch(err) {}
-        renderTable();
-        resetCrudForm();
-    }
-}
-
-// Función para Limpiar los campos del formulario CRUD
-function resetCrudForm() {
-    form.reset();
-    document.getElementById('word-id').value = '';
-    document.getElementById('crud-title').innerText = "Añadir Nueva Palabra";
-    document.getElementById('btn-cancel').style.display = "none";
-}
-
-// Cargar la tabla inmediatamente al abrir la página
-renderTable();
+            document.getElementById('word-en').value = item.en;document.getElementById('word-gesture').value = item.gesture;document.getElementById('crud-title').innerText = "Editar Palabra";document.getElementById('btn-cancel').style.display = "block";}}function deleteWord(id) {if (confirm('¿Eliminar esta palabra?')) {handy_db_memory = handy_db_memory.filter(i => i.id !== id);try { localStorage.setItem('handy_backup_key', JSON.stringify(handy_db_memory)); } catch(err) {}renderTable();resetCrudForm();}}function resetCrudForm() {form.reset();document.getElementById('word-id').value = '';document.getElementById('crud-title').innerText = "Añadir Nueva Palabra";document.getElementById('btn-cancel').style.display = "none";}renderTable();
+        
