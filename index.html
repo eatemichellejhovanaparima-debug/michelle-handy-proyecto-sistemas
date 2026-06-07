@@ -1,17 +1,397 @@
-<form id="form-handy-secure">
-    <label for="name">Nombre de Contacto:</label>
-    <input type="text" id="name" required>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HANDY - Aprendizaje de Inglés mediante LSB</title>
 
-    <label for="email">Correo Electrónico:</label>
-    <input type="email" id="email" required>
+<style>
+:root{
+    --primary:#2a75d3;
+    --secondary:#ff9f43;
+    --success:#2ed573;
+    --dark:#2d3748;
+    --light:#f7fafc;
+    --grey:#e2e8f0;
+}
 
-    <label for="rol">Rol del Interesado:</label>
-    <select id="rol" required>
-        <option value="Padre/Madre">Padre / Madre de Familia</option>
-        <option value="Docente">Docente / Tutor de Apoyo</option>
-    </select>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:'Segoe UI',sans-serif;
+}
 
-    <button type="submit" class="btn-submit">
-        ¡Solicitar Acceso Gratuito!
-    </button>
-</form>
+body{
+    background:var(--light);
+    color:var(--dark);
+    line-height:1.6;
+    padding-bottom:40px;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+header{
+    background:linear-gradient(135deg,#eef2f7 0%,#d9e2ec 100%);
+    padding:30px 0;
+    text-align:center;
+    border-bottom:4px solid var(--primary);
+}
+
+.logo{
+    font-size:2.5rem;
+    font-weight:800;
+    color:var(--primary);
+}
+
+.main-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:30px;
+    padding:30px 0;
+}
+
+@media(min-width:768px){
+    .main-grid{
+        grid-template-columns:1.2fr .8fr;
+    }
+}
+
+.card{
+    background:white;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:12px;
+    border-left:5px solid var(--primary);
+}
+
+.card.alt{
+    border-left-color:var(--secondary);
+}
+
+.form-container{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    border:1px solid var(--grey);
+}
+
+label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:600;
+}
+
+input,select{
+    width:100%;
+    padding:11px;
+    margin-bottom:12px;
+    border:2px solid var(--grey);
+    border-radius:6px;
+}
+
+.btn-submit{
+    width:100%;
+    background:var(--success);
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+    background:white;
+}
+
+th,td{
+    border:1px solid var(--grey);
+    padding:10px;
+}
+
+th{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-action{
+    padding:5px 8px;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <p>Caso de Estudio: UNIFRANZ El Alto</p>
+        <div class="logo">HANDY 🙌</div>
+        <h1>Aplicación Web Educativa para el Aprendizaje de Inglés mediante la Lengua de Señas Boliviana</h1>
+    </div>
+</header>
+
+<div class="container">
+
+    <main class="main-grid">
+
+        <section>
+            <h2>Componentes de la Plataforma Inteligente</h2>
+
+            <div class="card">
+                <h3>📚 Módulo de Aprendizaje Visual</h3>
+                <p>Acceso interactivo al abecedario completo en LSB y vocabulario en inglés.</p>
+            </div>
+
+            <div class="card alt">
+                <h3>📷 Módulo de Cámara Inteligente</h3>
+                <p>Activación de la cámara para reconocer las señas mediante visión artificial.</p>
+            </div>
+
+            <div class="card">
+                <h3>🎮 Actividades Dinámicas y Niveles</h3>
+                <p>Ejercicios adaptados al ritmo de los niños con validación automática.</p>
+            </div>
+        </section>
+
+        <section class="form-container">
+
+            <h2>Obtener Acceso Temprano</h2>
+
+            <form id="form-handy-secure">
+
+                <label>Nombre de Contacto</label>
+                <input type="text" id="name" required>
+
+                <label>Correo Electrónico</label>
+                <input type="email" id="email" required>
+
+                <label>Rol del Interesado</label>
+                <select id="rol" required>
+                    <option value="Padre/Madre">Padre / Madre</option>
+                    <option value="Docente">Docente</option>
+                </select>
+
+                <button type="submit" class="btn-submit">
+                    ¡Solicitar Acceso Gratuito!
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <hr style="margin:25px 0;">
+
+    <section class="form-container">
+
+        <h2>🛠 Panel CRUD: Gestión de Vocabulario</h2>
+
+        <h3 id="crud-title">Añadir Nueva Palabra</h3>
+
+        <form id="crud-form">
+
+            <input type="hidden" id="word-id">
+
+            <label>Palabra en Español</label>
+            <input type="text" id="word-es" required>
+
+            <label>Palabra en Inglés</label>
+            <input type="text" id="word-en" required>
+
+            <label>Gesto LSB</label>
+            <input type="text" id="word-gesture" required>
+
+            <button type="submit" class="btn-submit">
+                Guardar Palabra
+            </button>
+
+            <button
+                type="button"
+                id="btn-cancel"
+                onclick="resetCrudForm()"
+                style="display:none;margin-top:10px;width:100%;">
+                Cancelar
+            </button>
+
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Español</th>
+                    <th>Inglés</th>
+                    <th>Gesto LSB</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+
+    </section>
+
+</div>
+
+<script>
+
+// Formulario acceso
+document.getElementById("form-handy-secure").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    alert("Solicitud registrada correctamente");
+    window.location.href = "gracias.html";
+});
+
+// Base de datos local
+let handy_db_memory = JSON.parse(
+    localStorage.getItem("handy_backup_key")
+) || [
+    {
+        id:"1",
+        es:"Hola",
+        en:"Hello",
+        gesture:"Mano extendida en la sien."
+    },
+    {
+        id:"2",
+        es:"Gracias",
+        en:"Thank you",
+        gesture:"Mano de los labios hacia adelante."
+    }
+];
+
+const tbody = document.getElementById("table-body");
+const form = document.getElementById("crud-form");
+
+function renderTable(){
+
+    tbody.innerHTML = "";
+
+    handy_db_memory.forEach(item => {
+
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+            <td>${item.es}</td>
+            <td>${item.en}</td>
+            <td>${item.gesture}</td>
+            <td>
+                <button class="btn-action"
+                onclick="editWord('${item.id}')">
+                Editar
+                </button>
+
+                <button class="btn-action"
+                onclick="deleteWord('${item.id}')">
+                Eliminar
+                </button>
+            </td>
+        `;
+
+        tbody.appendChild(tr);
+    });
+}
+
+form.addEventListener("submit", saveWord);
+
+function saveWord(e){
+
+    e.preventDefault();
+
+    const id = document.getElementById("word-id").value;
+    const es = document.getElementById("word-es").value.trim();
+    const en = document.getElementById("word-en").value.trim();
+    const gesture = document.getElementById("word-gesture").value.trim();
+
+    if(id){
+
+        handy_db_memory = handy_db_memory.map(item =>
+            item.id === id
+            ? {id,es,en,gesture}
+            : item
+        );
+
+    }else{
+
+        handy_db_memory.push({
+            id:Date.now().toString(),
+            es,
+            en,
+            gesture
+        });
+    }
+
+    localStorage.setItem(
+        "handy_backup_key",
+        JSON.stringify(handy_db_memory)
+    );
+
+    resetCrudForm();
+    renderTable();
+}
+
+function editWord(id){
+
+    const item = handy_db_memory.find(
+        x => x.id === id
+    );
+
+    if(!item) return;
+
+    document.getElementById("word-id").value = item.id;
+    document.getElementById("word-es").value = item.es;
+    document.getElementById("word-en").value = item.en;
+    document.getElementById("word-gesture").value = item.gesture;
+
+    document.getElementById("crud-title").innerText =
+        "Editar Palabra";
+
+    document.getElementById("btn-cancel").style.display =
+        "block";
+}
+
+function deleteWord(id){
+
+    if(!confirm("¿Eliminar esta palabra?")) return;
+
+    handy_db_memory =
+        handy_db_memory.filter(x => x.id !== id);
+
+    localStorage.setItem(
+        "handy_backup_key",
+        JSON.stringify(handy_db_memory)
+    );
+
+    renderTable();
+}
+
+function resetCrudForm(){
+
+    form.reset();
+
+    document.getElementById("word-id").value = "";
+
+    document.getElementById("crud-title").innerText =
+        "Añadir Nueva Palabra";
+
+    document.getElementById("btn-cancel").style.display =
+        "none";
+}
+
+renderTable();
+
+</script>
+
+</body>
+</html>
