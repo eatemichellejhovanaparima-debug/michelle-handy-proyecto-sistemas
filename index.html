@@ -4,126 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HANDY - Aprendizaje de Inglés mediante LSB</title>
-    <!-- Estilos en línea para que funcione 100% solo con este archivo -->
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root { --primary: #2a75d3; --secondary: #ff9f43; --success: #2ed573; --dark: #2d3748; --light: #f7fafc; --grey: #e2e8f0; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--light); color: var(--dark); line-height: 1.6; padding-bottom: 40px; }
-        .container { width: 90%; max-width: 1100px; margin: 0 auto; }
-        header { background: linear-gradient(135deg, #eef2f7 0%, #d9e2ec 100%); padding: 40px 0; text-align: center; border-bottom: 4px solid var(--primary); }
-        .logo { font-size: 2.5rem; font-weight: 800; color: var(--primary); }
-        .main-grid { display: grid; grid-template-columns: 1fr; gap: 30px; padding: 30px 0; }
-        @media (min-width: 768px) { .main-grid { grid-template-columns: 1.2fr 0.8fr; } }
-        .card { background: white; padding: 15px; border-radius: 8px; margin-bottom: 12px; border-left: 5px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .card.alt { border-left-color: var(--secondary); }
-        .form-container { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid var(--grey); height: fit-content; }
-        label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.85rem; }
-        input, select { width: 100%; padding: 10px; margin-bottom: 12px; border: 2px solid var(--grey); border-radius: 6px; font-size: 0.95rem; }
-        input:focus, select:focus { border-color: var(--primary); outline: none; }
-        .btn-submit { width: 100%; background-color: var(--success); color: white; border: none; padding: 12px; font-size: 1rem; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
-        .btn-submit:hover { background-color: #26af5f; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; font-size: 0.9rem; }
-        th, td { padding: 10px; border: 1px solid var(--grey); text-left: left; }
-        th { background: var(--primary); color: white; }
-        .btn-action { padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-right: 4px; }
+        .crud-box { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid var(--grey); margin-top: 30px; }
+        .crud-form-panel { background: #f7fafc; padding: 15px; border-radius: 8px; border: 1px solid var(--grey); margin-bottom: 20px; }
+        .crud-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; font-size: 0.9rem; }
+        .crud-table th, .crud-table td { padding: 10px; border: 1px solid var(--grey); text-align: left; }
+        .crud-table th { background: var(--primary); color: white; }
+        .btn-blue { width: 100%; background-color: var(--primary); color: white; border: none; padding: 12px; font-size: 1rem; font-weight: bold; border-radius: 6px; cursor: pointer; }
+        .btn-act { padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-right: 4px; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <p style="font-size:0.85rem; font-weight:bold; color:#718096;">Caso de Estudio: UNIFRANZ El Alto</p>
+        <div class="container animate-fade">
+            <p class="badge-uni">Caso de Estudio: UNIFRANZ El Alto</p>
             <div class="logo">HANDY 🙌</div>
-            <h1 style="font-size:1.8rem; margin:10px 0;">Aprendizaje de Inglés mediante la Lengua de Señas Boliviana</h1>
+            <h1>Aplicación Web Educativa para el Aprendizaje de Inglés mediante la Lengua de Señas Boliviana</h1>
+            <p>Una herramienta interactiva diseñada específicamente para la inclusión de niños con discapacidad auditiva de 6 a 10 años.</p>
         </div>
     </header>
 
     <div class="container">
         <main class="main-grid">
-            <!-- Módulos Informativos -->
-            <section>
-                <h2 style="color:var(--primary); margin-bottom:15px;">Componentes de la Plataforma</h2>
-                <div class="card"><h3>📚 Aprendizaje Visual</h3><p>Abecedario completo en LSB y vocabulario en inglés.</p></div>
-                <div class="card alt"><h3>📷 Cámara Inteligente</h3><p>Reconocimiento de señas en tiempo real por visión artificial.</p></div>
-                <div class="card"><h3>🎮 Actividades Dinámicas</h3><p>Validación automática de aciertos por niveles.</p></div>
+            
+            <section class="features">
+                <h2>Componentes de la Plataforma Inteligente</h2>
+                <div class="card">
+                    <h3>📚 Módulo de Aprendizaje Visual</h3>
+                    <p>Acceso interactivo al abecedario completo en LSB y a un banco de vocabulario estructurado en idioma inglés.</p>
+                </div>
+                <div class="card alt">
+                    <h3>📷 Módulo de Cámara Inteligente</h3>
+                    <p>Activación de la cámara del dispositivo en tiempo real para procesar y reconocer las señas mediante visión artificial.</p>
+                </div>
+                <div class="card">
+                    <h3>🎮 Actividades Dinámicas y Niveles</h3>
+                    <p>Ejercicios adaptados al ritmo de los niños con validación automática y retroalimentación inmediata de aciertos.</p>
+                </div>
+                <div class="card alt">
+                    <h3>📊 Sistema de Progreso</h3>
+                    <p>Seguimiento académico continuo mediante el almacenamiento de puntajes, niveles alcanzados y estrellas obtenidas.</p>
+                </div>
             </section>
 
-            <!-- Formulario Registro Leads -->
             <section class="form-container">
                 <h2>Obtener Acceso Temprano</h2>
-                <p style="font-size:0.85rem; color:#718096; margin-bottom:15px;">Regístrate para participar en las pruebas experimentales.</p>
-                <form id="form-lead" onsubmit="handleLeadSubmit(event)">
-                    <label>Nombre de Contacto:</label>
-                    <input type="text" id="lead-name" required placeholder="Ej. Michelle Pari">
-                    <label>Correo Electrónico:</label>
-                    <input type="email" id="lead-email" required placeholder="correo@ejemplo.com">
-                    <label>Rol:</label>
-                    <select id="lead-rol" required>
+                <p>Regístrate para participar en las pruebas experimentales del sistema modular.</p>
+                
+                <form id="form-handy" action="https://formsubmit.co" method="POST">
+                    <input type="hidden" name="_subject" value="Nuevo registro Lead - HANDY">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://github.io">
+                    
+                    <label for="name">Nombre de Contacto:</label>
+                    <input type="text" id="name" name="name" placeholder="Ej. Michelle Pari" required>
+
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+
+                    <label for="rol">Rol del Interesado:</label>
+                    <select id="rol" name="rol" required>
+                        <option value="" disabled selected>Selecciona tu rol</option>
                         <option value="Padre/Madre">Padre / Madre de Familia</option>
-                        <option value="Docente">Docente / Tutor</option>
+                        <option value="Docente">Docente / Tutor de Apoyo</option>
+                        <option value="Institucion">Institución Educativa</option>
                     </select>
+
                     <button type="submit" class="btn-submit">¡Solicitar Acceso Gratuito!</button>
                 </form>
             </section>
         </main>
 
-        <hr style="border:0; height:1px; background:var(--grey); margin: 30px 0;">
+        <hr style="border: 0; height: 1px; background: var(--grey); margin: 30px 0;">
 
-        <!-- PANEL CRUD TOTALMENTE FUNCIONAL -->
-        <section style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid var(--grey);">
+        <!-- PANEL CRUD OPERATIVO -->
+        <section class="crud-box">
             <h2 style="color: var(--primary); margin-bottom: 5px;">🛠️ Panel CRUD: Gestión de Vocabulario</h2>
-            <p style="font-size:0.85rem; color:#718096; margin-bottom:20px;">Módulo operativo para administrar el banco de palabras guardadas en la memoria local.</p>
+            <p style="font-size: 0.85rem; color: #718096; margin-bottom: 20px;">Módulo operativo para administrar el banco de palabras guardadas en la memoria local.</p>
             
-            <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
-                <!-- Formulario CRUD -->
-                <div style="background: #f7fafc; padding: 15px; border-radius: 8px; border: 1px solid var(--grey);">
-                    <h3 id="crud-title" style="margin-bottom:10px;">Añadir Nueva Palabra</h3>
-                    <form id="crud-form" onsubmit="saveWord(event)">
-                        <input type="hidden" id="word-id">
-                        <label>Palabra en Español:</label>
-                        <input type="text" id="word-es" required placeholder="Ej. Perro">
-                        <label>Palabra en Inglés:</label>
-                        <input type="text" id="word-en" required placeholder="Ej. Dog">
-                        <label>Gesto LSB:</label>
-                        <input type="text" id="word-gesture" required placeholder="Ej. Movimiento de manos...">
-                        
-                        <div style="display:flex; gap:10px;">
-                            <button type="submit" class="btn-submit" style="background:var(--primary); width:70%;">Guardar</button>
-                            <button type="button" id="btn-cancel" onclick="resetCrudForm()" style="display:none; background:#a0aec0; color:white; border:none; padding:10px; border-radius:6px; cursor:pointer; width:30%;">Cancelar</button>
-                        </div>
-                    </form>
-                </div>
+            <div class="crud-form-panel">
+                <h3 id="crud-title" style="margin-bottom: 10px;">Añadir Nueva Palabra</h3>
+                <form id="crud-form" onsubmit="saveWord(event)">
+                    <input type="hidden" id="word-id">
+                    
+                    <label>Palabra en Español:</label>
+                    <input type="text" id="word-es" required placeholder="Ej. Perro">
+                    
+                    <label>Palabra en Inglés:</label>
+                    <input type="text" id="word-en" required placeholder="Ej. Dog">
+                    
+                    <label>Gesto LSB:</label>
+                    <input type="text" id="word-gesture" required placeholder="Ej. Movimiento de manos...">
+                    
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <button type="submit" class="btn-blue" style="width: 70%;">Guardar Palabra</button>
+                        <button type="button" id="btn-cancel" onclick="resetCrudForm()" style="display: none; background: #a0aec0; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer; width: 30%; font-weight: bold;">Cancelar</button>
+                    </div>
+                </form>
+            </div>
 
-                <!-- Tabla CRUD -->
-                <div style="overflow-x: auto;">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Español</th>
-                                <th>Inglés</th>
-                                <th>Gesto LSB</th>
-                                <th style="text-align:center;">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table-body"></tbody>
-                    </table>
-                </div>
+            <div style="overflow-x: auto;">
+                <table class="crud-table">
+                    <thead>
+                        <tr>
+                            <th>Español</th>
+                            <th>Inglés</th>
+                            <th>Gesto LSB</th>
+                            <th style="text-align: center;">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Inyección de datos -->
+                    </tbody>
+                </table>
             </div>
         </section>
     </div>
 
-    <script>
-        // Formulario Verde (Redirección Inmediata)
-        function handleLeadSubmit(e) {
-            e.preventDefault();
-            window.location.href = "gracias.html";
-        }
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Proyecto HANDY - Ingeniería de Sistemas. El Alto, Bolivia.</p>
+            <p>Construido con HTML5, CSS3 y JavaScript Adaptativo bajo la metodología ágil SCRUM.</p>
+        </div>
+    </footer>
 
-        // --- SISTEMA CRUD CON LOCALSTORAGE ---
+    <script>
+        // --- SISTEMA CRUD SEGURO ---
         const defaultData = [
             { id: "1", es: "Hola", en: "Hello", gesture: "Mano extendida en la sien." },
             { id: "2", es: "Gracias", en: "Thank you", gesture: "Mano de los labios hacia adelante." }
         ];
+
         if (!localStorage.getItem('handy_db')) {
             localStorage.setItem('handy_db', JSON.stringify(defaultData));
         }
@@ -131,47 +144,77 @@
         const tbody = document.getElementById('table-body');
         const form = document.getElementById('crud-form');
 
-        // LEER (READ)
         function renderTable() {
             const data = JSON.parse(localStorage.getItem('handy_db')) || [];
             tbody.innerHTML = '';
+            
             data.forEach(item => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <td style="font-weight:bold;">${item.es}</td>
-                    <td style="color:var(--primary); italic">${item.en}</td>
+                    <td style="font-weight: bold;">${item.es}</td>
+                    <td style="color: var(--primary); font-style: italic;">${item.en}</td>
                     <td>${item.gesture}</td>
-                    <td style="text-align:center; white-space:nowrap;">
-                        <button class="btn-action" style="background:#ebf4ff; color:var(--primary);" onclick="editWord('${item.id}')">Editar</button>
-                        <button class="btn-action" style="background:#fff5f5; color:#e53e3e;" onclick="deleteWord('${item.id}')">Eliminar</button>
+                    <td style="text-align: center; white-space: nowrap;">
+                        <button class="btn-act" style="background: #ebf4ff; color: var(--primary);" onclick="editWord('${item.id}')">Editar</button>
+                        <button class="btn-act" style="background: #fff5f5; color: #e53e3e;" onclick="deleteWord('${item.id}')">Eliminar</button>
                     </td>
                 `;
                 tbody.appendChild(tr);
             });
         }
 
-        // CREAR / ACTUALIZAR (CREATE / UPDATE)
         function saveWord(e) {
             e.preventDefault();
             const id = document.getElementById('word-id').value;
             const es = document.getElementById('word-es').value.trim();
             const en = document.getElementById('word-en').value.trim();
             const gesture = document.getElementById('word-gesture').value.trim();
+            
             let data = JSON.parse(localStorage.getItem('handy_db')) || [];
 
             if (id) {
-                data = data.map(i => i.id === id ? { id, es, en, gesture } : i);
+                data = data.map(item => item.id === id ? { id, es, en, gesture } : item);
             } else {
                 data.push({ id: Date.now().toString(), es, en, gesture });
             }
+
             localStorage.setItem('handy_db', JSON.stringify(data));
             resetCrudForm();
             renderTable();
         }
 
-        // CARGAR PARA EDITAR
         function editWord(id) {
             const data = JSON.parse(localStorage.getItem('handy_db')) || [];
+            const item = data.find(i => i.id === id);
+            if (item) {
+                document.getElementById('word-id').value = item.id;
+                document.getElementById('word-es').value = item.es;
+                document.getElementById('word-en').value = item.en;
+                document.getElementById('word-gesture').value = item.gesture;
+        // Función para cambiar el formulario al modo "Editar"
+        document.getElementById('crud-title').innerText = "Editar Palabra";
+        document.getElementById('btn-cancel').style.display = "block";
+    }
+}
 
+// Función para Eliminar una palabra del CRUD (DELETE)
+function deleteWord(id) {
+    if (confirm('¿Eliminar esta palabra?')) {
+        let data = JSON.parse(localStorage.getItem('handy_db')) || [];
+        data = data.filter(i => i.id !== id);
+        localStorage.setItem('handy_db', JSON.stringify(data));
+        renderTable();
+        resetCrudForm();
+    }
+}
 
-        const item = data.find(i => i.id === id);if (item) {document.getElementById('word-id').value = item.id;document.getElementById('word-es').value = item.es;document.getElementById('word-en').value = item.en;document.getElementById('word-gesture').value = item.gesture;document.getElementById('crud-title').innerText = "Editar Palabra";document.getElementById('btn-cancel').style.display = "block";}}// ELIMINAR (DELETE)function deleteWord(id) {if (confirm('¿Eliminar palabra?')) {let data = JSON.parse(localStorage.getItem('handy_db')) || [];data = data.filter(i => i.id !== id);localStorage.setItem('handy_db', JSON.stringify(data));renderTable();resetCrudForm();}}function resetCrudForm() {form.reset();document.getElementById('word-id').value = '';document.getElementById('crud-title').innerText = "Añadir Nueva Palabra";document.getElementById('btn-cancel').style.display = "none";}document.addEventListener('DOMContentLoaded', renderTable);
+// Función para Limpiar los campos del formulario CRUD
+function resetCrudForm() {
+    form.reset();
+    document.getElementById('word-id').value = '';
+    document.getElementById('crud-title').innerText = "Añadir Nueva Palabra";
+    document.getElementById('btn-cancel').style.display = "none";
+}
+
+// Ejecutar la lectura de la tabla en cuanto cargue la página
+document.addEventListener('DOMContentLoaded', renderTable);
