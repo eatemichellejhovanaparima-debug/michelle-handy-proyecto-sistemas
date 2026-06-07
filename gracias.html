@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por registrarte! - HANDY</title>
+    <!-- Vinculación del mismo archivo de estilos -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .thank-you-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 500px;
+            margin: 80px auto;
+            border-top: 5px solid var(--success);
+        }
+        .icon-check {
+            font-size: 3.5rem;
+            color: var(--success);
+            margin-bottom: 15px;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .btn-back:hover {
+            background-color: #1e5bb0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="thank-you-box animate-fade">
+            <div class="icon-check">✓</div>
+            <h2>¡Registro Completado!</h2>
+            <p>Hemos recibido tus datos correctamente para las pruebas experimentales del caso de estudio HANDY.</p>
+            <a href="index.html" class="btn-back">Volver al Inicio</a>
+        </div>
+    </div>
+</body>
+</html>
