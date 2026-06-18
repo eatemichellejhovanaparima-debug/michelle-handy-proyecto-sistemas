@@ -1,269 +1,90 @@
-x<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HANDY - Aprendizaje de Inglés mediante LSB</title>
+    <title>HANDY - Aprendizaje de Inglés en LSB</title>
+    
+    <!-- CONEXIÓN DIRECTA CON TU ARCHIVO STYLE.CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <div class="container animate-fade">
-            <p class="badge-uni">Caso de Estudio: UNIFRANZ El Alto</p>
-            <div class="logo">HANDY 🙌</div>
-            <h1>Aplicación Web Educativa para el Aprendizaje de Inglés mediante la Lengua de Señas Boliviana</h1>
-            <p>Una herramienta interactiva diseñada específicamente para la inclusión de niños con discapacidad auditiva de 6 a 10 años.</p>
-     
-     <a href="MICHELLEH4FIN.pdf"
-   target="_blank"
-   class="btn-submit">
-   📄 Ver Informe Completo
-</a>
-        </div>
-    </header>
+    <div class="landing-container">
+        <!-- Encabezado principal mandatorio por la ingeniería de la consigna -->
+        <header class="landing-header">
+            <h1>Aprende Inglés Jugando mediante la Lengua de Señas Boliviana</h1>
+            <p class="subtitle">Mapeo del Front-end con el Diagrama Entidad-Relación (DER)</p>
+        </header>
 
-    <div class="container">
-        <main class="main-grid">
-            
-            <!-- Características basadas en la taxonomía de tu informe -->
-            <section class="features">
-                <h2>Componentes de la Plataforma Inteligente</h2>
+        <main class="landing-main">
+            <!-- Sección informativa basada en la arquitectura de tu informe (Sección 3.3.6) -->
+            <section class="info-section">
+                <h2>¿Qué es HANDY?</h2>
+                <p>Es una aplicación web educativa inteligente diseñada para niños con discapacidad auditiva de 6 a 10 años. Permite aprender palabras básicas en inglés mediante la Lengua de Señas Boliviana (LSB), utilizando tecnologías de visión artificial.</p>
                 
-                <div class="card">
-                    <h3>📚 Módulo de Aprendizaje Visual</h3>
-                    <p>Acceso interactivo al abecedario completo en LSB y a un banco de vocabulario estructurado en idioma inglés.</p>
-                </div>
-
-                <div class="card alt">
-                    <h3>📷 Módulo de Cámara Inteligente</h3>
-                    <p>Activación de la cámara del dispositivo en tiempo real para procesar y reconocer las señas mediante visión artificial.</p>
-                </div>
-
-                <div class="card">
-                    <h3>🎮 Actividades Dinámicas y Niveles</h3>
-                    <p>Ejercicios adaptados al ritmo de los niños con validación automática y retroalimentación inmediata de aciertos.</p>
-                </div>
-
-                <div class="card alt">
-                    <h3>📊 Sistema de Progreso</h3>
-                    <p>Seguimiento académico continuo mediante el almacenamiento de puntajes, niveles alcanzados y estrellas obtenidas.</p>
+                <div class="tecnologias-box">
+                    <strong>Puntos Clave del Sistema Embebido (Ecosistema Flask/MySQL):</strong>
+                    <ul>
+                        <li>Base de Datos Relacional robusta en MySQL.</li>
+                        <li>Procesamiento de Inteligencia Artificial con TensorFlow y OpenCV.</li>
+                        <li>Cumplimiento estricto de la regla de negocio <b>RN-01 (Registro de usuarios)</b>.</li>
+                    </ul>
                 </div>
             </section>
 
-            <section class="form-container">
-                <h2>Obtener Acceso Temprano</h2>
-                <p>Regístrate para participar en las pruebas experimentales del sistema modular.</p>
-                
-                <form action="https://formsubmit.co/el/molosi" method="POST" id="form-handy">
+            <!-- Formulario Técnico conectado estrictamente a la sección 3.3.3.1 de tu PDF -->
+            <section class="form-section">
+                <div class="card-form">
+                    <h3>Registro de Usuario / Tutor (Módulo de Inicio)</h3>
+                    <p class="form-instruction">Cada entrada equivale a un atributo relacional de la tabla "Usuarios".</p>
                     
-                    <input type="hidden" name="_subject" value="Nuevo registro Lead - HANDY">
-                    <input type="hidden" name="_captcha" value="false">
-                    <!-- ENLACE OFICIAL DE TU REDIRECCIÓN EN GITHUB PAGES -->
-                    <input type="hidden" name="_next" value="https://github.io">
-                    
-                    <label for="name">Nombre de Contacto:</label>
-                    <input type="text" id="name" name="name" placeholder="Ej. Michelle Pari" required>
+                    <form id="formularioRegistro">
+                        <!-- Atributo: nombre_usuario -->
+                        <div class="input-group">
+                            <label for="nombre_usuario">Nombre Completo</label>
+                            <input type="text" id="nombre_usuario" name="nombre_usuario" placeholder="Ej. Michelle Pari" required>
+                        </div>
 
-                    <label for="email">Correo Electrónico:</label>
-                    <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+                        <!-- Atributo: correo_usuario -->
+                        <div class="input-group">
+                            <label for="correo_usuario">Correo Electrónico</label>
+                            <input type="email" id="correo_usuario" name="correo_usuario" placeholder="ejemplo@unifranz.edu.bo" required>
+                        </div>
 
-                    <label for="rol">Rol del Interesado:</label>
-                    <select id="rol" name="rol" required>
-                        <option value="" disabled selected>Selecciona tu rol</option>
-                        <option value="Padre/Madre">Padre / Madre de Familia</option>
-                        <option value="Docente">Docente / Tutor de Apoyo</option>
-                        <option value="Institucion">Institución Educativa</option>
-                    </select>
+                        <!-- Atributo: contrasena_usuario -->
+                        <div class="input-group">
+                            <label for="contrasena_usuario">Contraseña del Sistema</label>
+                            <input type="password" id="contrasena_usuario" name="contrasena_usuario" placeholder="Mínimo 6 caracteres" required>
+                        </div>
 
-                    <button type="submit" class="btn-submit">¡Solicitar Acceso Gratuito!</button>
-                </form>
+                        <!-- Atributo: rol_usuario -->
+                        <div class="input-group">
+                            <label for="rol_usuario">Rol Institucional</label>
+                            <select id="rol_usuario" name="rol_usuario" required>
+                                <option value="" disabled selected>Seleccione un rol...</option>
+                                <option value="Estudiante">Estudiante (Niño de 6 a 10 años)</option>
+                                <option value="Tutor">Tutor / Padre de Familia</option>
+                                <option value="Administrador">Administrador del Sistema</option>
+                            </select>
+                        </div>
+
+                        <!-- Botón de acción que simula la transacción SQL -->
+                        <button type="submit" id="btnEnviar">Registrar en Base de Datos</button>
+                    </form>
+
+                    <!-- Caja de depuración para la validación visual del docente -->
+                    <div id="consolaDebug" class="debug-box hidden"></div>
+                </div>
             </section>
-
         </main>
+
+        <footer class="landing-footer">
+            <p>© 2026 Proyecto HANDY - Carrera de Ingeniería de Sistemas - UNIFRANZ</p>
+        </footer>
     </div>
 
-    <section class="crud-container">
-
-    <h2>🛠 Panel CRUD: Gestión de Vocabulario</h2>
-    <p>Administración de palabras en Español, Inglés y Lengua de Señas Boliviana.</p>
-
-    <form id="crud-form">
-        <input type="hidden" id="word-id">
-
-        <label>Palabra en Español:</label>
-        <input type="text" id="word-es" required>
-
-        <label>Palabra en Inglés:</label>
-        <input type="text" id="word-en" required>
-
-        <label>Gesto LSB:</label>
-        <input type="text" id="word-gesture" required>
-
-        <button type="submit" class="btn-submit">
-            Guardar Palabra
-        </button>
-    </form>
-
-    <table id="crud-table">
-        <thead>
-            <tr>
-                <th>Español</th>
-                <th>Inglés</th>
-                <th>Gesto LSB</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-
-        <tbody id="table-body">
-        </tbody>
-    </table>
-
-</section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Proyecto HANDY - Ingeniería de Sistemas. El Alto, Bolivia.</p>
-            <p>Construido con HTML5, CSS3 y JavaScript Adaptativo bajo la metodología ágil SCRUM.</p>
-        </div>
-    </footer>
-
- <script>
-let handy_db_memory = JSON.parse(
-    localStorage.getItem("handy_backup_key")
-) || [
-    {
-        id:"1",
-        es:"Hola",
-        en:"Hello",
-        gesture:"Saludo con la mano"
-    },
-    {
-        id:"2",
-        es:"Gracias",
-        en:"Thank you",
-        gesture:"Mano desde la boca"
-    }
-];
-
-const tbody = document.getElementById("table-body");
-
-function saveStorage(){
-    localStorage.setItem(
-        "handy_backup_key",
-        JSON.stringify(handy_db_memory)
-    );
-}
-
-function renderTable(){
-
-    tbody.innerHTML = "";
-
-    handy_db_memory.forEach(item => {
-
-        const tr = document.createElement("tr");
-
-        tr.innerHTML = `
-            <td>${item.es}</td>
-            <td>${item.en}</td>
-            <td>${item.gesture}</td>
-
-            <td>
-                <button onclick="editWord('${item.id}')">
-                    Editar
-                </button>
-
-                <button onclick="deleteWord('${item.id}')">
-                    Eliminar
-                </button>
-            </td>
-        `;
-
-        tbody.appendChild(tr);
-    });
-}
-
-document
-.getElementById("crud-form")
-.addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    const id =
-        document.getElementById("word-id").value;
-
-    const es =
-        document.getElementById("word-es").value;
-
-    const en =
-        document.getElementById("word-en").value;
-
-    const gesture =
-        document.getElementById("word-gesture").value;
-
-    if(id){
-
-        handy_db_memory =
-            handy_db_memory.map(item =>
-                item.id === id
-                ? {id,es,en,gesture}
-                : item
-            );
-
-    }else{
-
-        handy_db_memory.push({
-            id:Date.now().toString(),
-            es,
-            en,
-            gesture
-        });
-    }
-
-    saveStorage();
-
-    this.reset();
-
-    document.getElementById("word-id").value="";
-
-    renderTable();
-});
-
-function editWord(id){
-
-    const item =
-        handy_db_memory.find(
-            x => x.id === id
-        );
-
-    document.getElementById("word-id").value =
-        item.id;
-
-    document.getElementById("word-es").value =
-        item.es;
-
-    document.getElementById("word-en").value =
-        item.en;
-
-    document.getElementById("word-gesture").value =
-        item.gesture;
-}
-
-function deleteWord(id){
-
-    if(confirm("¿Eliminar palabra?")){
-
-        handy_db_memory =
-            handy_db_memory.filter(
-                x => x.id !== id
-            );
-
-        saveStorage();
-        renderTable();
-    }
-}
-
-renderTable();
-</script>
+    <!-- CONEXIÓN DIRECTA CON TU ARCHIVO SCRIPT.JS -->
+    <script src="script.js"></script>
 </body>
 </html>
